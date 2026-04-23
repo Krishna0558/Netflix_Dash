@@ -18,34 +18,26 @@
       object-fit: cover;
     }
 
-    /* Play button */
-    #playBtn {
+    #playBtn, #enterBtn {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #E50914;
-      color: white;
-      border: none;
-      padding: 18px 40px;
-      font-size: 22px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    /* Enter button */
-    #enterBtn {
-      position: absolute;
-      bottom: 60px;
       left: 50%;
       transform: translateX(-50%);
       background-color: #E50914;
       color: white;
       border: none;
-      padding: 15px 35px;
+      padding: 16px 35px;
       font-size: 20px;
       cursor: pointer;
       border-radius: 4px;
+    }
+
+    #playBtn {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #enterBtn {
+      bottom: 60px;
       display: none;
     }
   </style>
@@ -53,16 +45,13 @@
 
 <body>
 
-<!-- Video -->
 <video id="introVideo">
   <source src="Netflix New Logo Animation 2019.mp4" type="video/mp4">
 </video>
 
-<!-- Play Button -->
-<button id="playBtn" onclick="startVideo()">▶ Start Experience</button>
+<button id="playBtn" onclick="startVideo()">Start Experience</button>
 
-<!-- Enter Button -->
-<button id="enterBtn" onclick="goToDashboard()">Continue to Dashboard</button>
+<button id="enterBtn" onclick="goToDashboard()">Explore Insights</button>
 
 <script>
   const video = document.getElementById("introVideo");
@@ -70,17 +59,16 @@
   const enterBtn = document.getElementById("enterBtn");
 
   function startVideo() {
-    playBtn.style.display = "none"; // hide play button
+    playBtn.style.display = "none";
     video.play();
 
-    // when video ends, show Enter button
     video.onended = function() {
       enterBtn.style.display = "block";
     };
   }
 
   function goToDashboard() {
-    window.location.href = "https://datastudio.google.com/s/s8t91bV7YCE";
+    window.location.href = "https://datastudio.google.com/s/l69_3Bs0k1w";
   }
 </script>
 
