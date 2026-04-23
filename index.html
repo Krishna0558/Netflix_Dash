@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Dashboard Entry</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+<video id="introVideo">
+  <source src="Netflix New Logo Animation 2019.mp4" type="video/mp4">
+</video>
+
+<script>
+  const video = document.getElementById("introVideo");
+
+  // Play video on click (browser rule)
+  document.body.addEventListener("click", function () {
+    video.play();
+  });
+
+  // Redirect after video ends
+  video.onended = function() {
+    window.location.href = "https://datastudio.google.com/reporting/ca37e20f-1c92-4e73-8649-00cc044bbf9f/page/iFRvF";
+  };
+</script>
+
+</body>
+</html>
