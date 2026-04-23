@@ -9,6 +9,7 @@
       margin: 0;
       background-color: black;
       overflow: hidden;
+      font-family: Arial, sans-serif;
     }
 
     video {
@@ -16,27 +17,71 @@
       height: 100vh;
       object-fit: cover;
     }
+
+    /* Play button */
+    #playBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #E50914;
+      color: white;
+      border: none;
+      padding: 18px 40px;
+      font-size: 22px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* Enter button */
+    #enterBtn {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #E50914;
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      display: none;
+    }
   </style>
 </head>
 
 <body>
 
+<!-- Video -->
 <video id="introVideo">
   <source src="Netflix New Logo Animation 2019.mp4" type="video/mp4">
 </video>
 
+<!-- Play Button -->
+<button id="playBtn" onclick="startVideo()">▶ Start Experience</button>
+
+<!-- Enter Button -->
+<button id="enterBtn" onclick="goToDashboard()">Continue to Dashboard</button>
+
 <script>
   const video = document.getElementById("introVideo");
+  const playBtn = document.getElementById("playBtn");
+  const enterBtn = document.getElementById("enterBtn");
 
-  // Play video on click (browser rule)
-  document.body.addEventListener("click", function () {
+  function startVideo() {
+    playBtn.style.display = "none"; // hide play button
     video.play();
-  });
 
-  // Redirect after video ends
-  video.onended = function() {
-    window.location.href = "https://datastudio.google.com/reporting/ca37e20f-1c92-4e73-8649-00cc044bbf9f/page/iFRvF";
-  };
+    // when video ends, show Enter button
+    video.onended = function() {
+      enterBtn.style.display = "block";
+    };
+  }
+
+  function goToDashboard() {
+    window.location.href = "https://datastudio.google.com/s/s8t91bV7YCE";
+  }
 </script>
 
 </body>
